@@ -1,0 +1,2 @@
+# Editor Avg Word
+
