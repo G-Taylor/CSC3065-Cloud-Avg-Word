@@ -7,6 +7,7 @@ stages:
 build:
   stage: build
   script:
+    - apt-get install -y golang
     - go build
 
 test:
