@@ -1,0 +1,15 @@
+stages:
+  - build
+  - test
+
+build:
+  - stage: build
+  - image: golang:1.16-alpine
+  - script:
+    - go run main.go
+
+test:
+  - stage: test
+  - image: golang:1.16-alpine
+  - script:
+    - go test -v
