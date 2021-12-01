@@ -3,7 +3,7 @@ image: golang:1.16-alpine
 stages:
   - test
 
-format:
-  - stage: test
-  - script:
+test:
+  stage: test
+  script:
     - go test
