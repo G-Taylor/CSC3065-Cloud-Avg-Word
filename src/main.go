@@ -1,21 +1,27 @@
 package main
 
 import (
+	"40234272/editor-avg-word/function"
 	"encoding/json"
 	"net/http"
 )
 
-type response struct {
-	Error    bool   `json:"error"`
-	Sentence string `json:"sentence"`
-	Answer   int    `json:"answer"`
+type Response struct {
+	Error    bool    `json:"error"`
+	Sentence string  `json:"sentence"`
+	Answer   float32 `json:"answer"`
 }
 
-func queryHandler(w http.ResponseWriter, r *http.Request) {
+func main() {
+	http.HandleFunc("/", QueryHandler)
+	http.ListenAndServe(":5000", nil)
+}
+
+func QueryHandler(w http.ResponseWriter, r *http.Request) {
 
 	inputString := r.URL.Query().Get("text")
 
-	outputJSON := response{
+	outputJSON := Response{
 		Error:    false,
 		Sentence: "",
 		Answer:   0,
@@ -29,6 +35,10 @@ func queryHandler(w http.ResponseWriter, r *http.Request) {
 	if inputString == "" {
 		outputJSON.Error = true
 		outputJSON.Sentence = "No Text Entered"
+	} else {
+		outputJSON.Sentence = inputString
+		answer := function.AverageWordLength(inputString)
+		outputJSON.Answer = answer
 	}
 
 	w.Header().Set("Access-Control-Allow-Origin", "*")
