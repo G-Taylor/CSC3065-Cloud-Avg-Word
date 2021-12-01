@@ -1,4 +1,4 @@
-image: golang:1.16-alpine
+image: ubuntu:18.04
 
 stages:
   - build
@@ -12,4 +12,5 @@ build:
 test:
   stage: test
   script:
+    - apt-get install build-essential
     - go test
