@@ -7,7 +7,7 @@ stages:
 build:
   stage: build
   script:
-    - go run main.go
+    - go build
 
 test:
   stage: test
