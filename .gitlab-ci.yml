@@ -1,11 +1,15 @@
 image: golang:1.16-alpine
 
 stages:
+  - build
   - test
+
+build:
+  stage: build
+  script:
+    - go run main.go
 
 test:
   stage: test
   script:
-    - apt-get update -y
-    - apt-get install -y golang
     - go test
