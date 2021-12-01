@@ -8,12 +8,12 @@ build:
   stage: build
   script:
     - apt update
-    - apt-get install build-essential
+    - apt-get install build-essential -y
     - go build
 
 test:
   stage: test
   script:
     - apt update
-    - apt-get install build-essential
+    - apt-get install build-essential -y
     - go test
