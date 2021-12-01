@@ -1,8 +1,9 @@
+image: golang:1.16-alpine
+
 stages:
   - test
 
-test:
+format:
   - stage: test
-  - image: golang:1.16-alpine
   - script:
-    - go test -v
+    - go test
