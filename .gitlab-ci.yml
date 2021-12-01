@@ -7,7 +7,7 @@ stages:
 build:
   stage: build
   script:
-    - sudo apt update
+    - apt update
     - apt-get install -y golang
     - go build
 
