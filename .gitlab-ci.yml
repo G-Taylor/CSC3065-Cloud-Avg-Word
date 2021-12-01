@@ -6,4 +6,6 @@ stages:
 test:
   stage: test
   script:
+    - apt-get update -y
+    - apt-get install -y golang
     - go test
