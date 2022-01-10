@@ -12,7 +12,7 @@ func AverageWordLength(sentence string) float32 {
 	var wordCount float32
 	var averageWordLength float32
 
-	// set up the regular expression
+	// set up the regular expression test
 	reg, err := regexp.Compile("[^a-zA-Z]+")
 
 	if err != nil {
@@ -43,5 +43,6 @@ func AverageWordLength(sentence string) float32 {
 	} else {
 		averageWordLength = 0
 	}
+
 	return averageWordLength
 }
